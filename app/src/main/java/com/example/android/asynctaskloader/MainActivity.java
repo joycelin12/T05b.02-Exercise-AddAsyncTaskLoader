@@ -98,6 +98,11 @@ public class MainActivity extends AppCompatActivity implements
 
         // TODO (17) If no search was entered, indicate that there isn't anything to search for and return
 
+        if (TextUtils.isEmpty(githubQuery)) {
+            mUrlDisplayTextView.setText("No query entered, nothing to search for.");
+            return;
+        }
+
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
 
